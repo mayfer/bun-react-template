@@ -41,7 +41,7 @@ const development = !Boolean(parsed.options.prod);
 const server = serve({
   routes: {
     "/": homepage,
-    "/api": apiRouter,
+    "/api/*": apiRouter,
     "/ws": (req) => {
       if (server.upgrade(req)) {
         return; // do not return a Response
@@ -52,11 +52,14 @@ const server = serve({
   websocket: {
     open(ws) {
       console.log("Client connected to socket");
+      ws.send(JSON.stringify({
+        message: "Connected (" + new Date().toISOString() + ")",
+      }));
     },
     message(ws, message) {
       console.log("Client sent message");
       ws.send(JSON.stringify({
-        message: "Hello from server",
+        message: "Hello from server (" + new Date().toISOString() + ")",
       }));
     },
     close(ws, code, message) {

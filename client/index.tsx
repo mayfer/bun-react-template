@@ -1,22 +1,11 @@
-/**
- * This file is the entry point for the React app, it sets up the root
- * element and renders the App component to the DOM.
- *
- * It is included in `src/index.html`.
- */
-
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import logo from "./assets/logo.svg";
-
+import { App } from "./App";
 
 const elem = document.getElementById("root")!;
 const app = (
   <StrictMode>
-    <div>
-      <h1>Hello World</h1>
-      <img style={{ width: "100px" }} src={logo} alt="Logo" />
-    </div>
+    <App />
   </StrictMode>
 );
 
@@ -28,4 +17,3 @@ if (import.meta.hot) {
   // The hot module reloading API is not available in production.
   createRoot(elem).render(app);
 }
-
