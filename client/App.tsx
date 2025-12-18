@@ -8,7 +8,7 @@ export function App() {
     <Page>
       <GlobalStyles />
       <Title>
-        <Logo src={logo} alt="Logo" /> Murat's Bun React Template
+        <Logo src={logo} alt="Logo" /> Murat's Bun React Variant
       </Title>
 
       <WebSocketDemo />

@@ -47,7 +47,7 @@ export function ApiCallDemo() {
 
   return (
     <Section>
-      <SectionTitle>API call demo</SectionTitle>
+      <SectionTitle>HTTP API demo</SectionTitle>
       <Row>
         <PrimaryButton onClick={callHealthApi} disabled={apiLoading}>
           {apiLoading ? "Calling..." : "Call /api/health"}

@@ -8,9 +8,8 @@ const colors = {
   cardBg: "rgba(20, 20, 20, 0.6)",
   cardBorder: "rgba(255, 255, 255, 0.08)",
 
-  primary: "#3b82f6", // Vibrant Blue
-  primaryGradient: "linear-gradient(135deg, #3b82f6 0%, #2563eb 100%)",
-  primaryHover: "#60a5fa",
+  primary: "#0b2652ff", // Vibrant Blue
+  primaryHover: "#153a7a",
 
   text: "#ededed",
   textMuted: "#a1a1aa",
@@ -18,7 +17,7 @@ const colors = {
 
   success: "#10b981",
   error: "#ef4444",
-  errorGradient: "linear-gradient(135deg, #ef4444 0%, #dc2626 100%)",
+  destructive: "#580909ff",
   warning: "#f59e0b",
 
   codeBg: "#0a0a0a",
@@ -97,6 +96,10 @@ export const Title = styled.h1`
 export const Logo = styled.img`
   width: 40px;
   height: 40px;
+
+  & svg {
+    fill: #fff;
+  }
 `;
 
 export const Section = styled.section`
@@ -106,7 +109,6 @@ export const Section = styled.section`
   margin-bottom: 32px;
   backdrop-filter: blur(12px);
   box-shadow: ${shadows.card};
-  transition: transform 0.2s, border-color 0.2s;
 
   &:hover {
     border-color: rgba(255, 255, 255, 0.15);
@@ -167,36 +169,30 @@ export const Button = styled(ButtonBase)`
 `;
 
 export const PrimaryButton = styled(ButtonBase)`
-  background: ${colors.primaryGradient};
-  border: 1px solid transparent;
+  background: ${colors.primary};
+  border: 1px solid rgba(255, 255, 255, 0.1);
   color: white;
-  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
 
   &:hover:not(:disabled) {
-    box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
-    transform: translateY(-1px);
+    background: ${colors.primaryHover};
   }
 
   &:active:not(:disabled) {
     transform: scale(0.98);
-    box-shadow: 0 2px 10px rgba(59, 130, 246, 0.3);
   }
 `;
 
 export const DestructiveButton = styled(ButtonBase)`
-  background: ${colors.errorGradient};
-  border: 1px solid transparent;
+  background: ${colors.destructive};
+  border: 1px solid rgba(255, 255, 255, 0.1);
   color: white;
-  box-shadow: 0 4px 15px rgba(239, 68, 68, 0.3);
 
   &:hover:not(:disabled) {
-    box-shadow: 0 6px 20px rgba(239, 68, 68, 0.4);
-    transform: translateY(-1px);
+    filter: brightness(1.2);
   }
   
   &:active:not(:disabled) {
     transform: scale(0.98);
-    box-shadow: 0 2px 10px rgba(239, 68, 68, 0.3);
   }
 `;
 
